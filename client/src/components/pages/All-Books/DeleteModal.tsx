@@ -47,7 +47,7 @@ const DeleteModal = ({id}:string) => {
                         and remove your data from our servers.
                     </DialogDescription>
                 </DialogHeader>
-                <Button onClick={handleDeleteBook} >Delete</Button>
+                <Button disabled={isDeleting} onClick={handleDeleteBook} >Delete</Button>
             </DialogContent>
         </Dialog>
     )
