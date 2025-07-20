@@ -1,10 +1,16 @@
+import { Outlet } from "react-router"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+
 function App() {
 
   return (
     <div>
-      <h1>
-        hlw
-      </h1>
+      <Navbar />
+      <div className="min-h-[100vh]">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   )
 }
