@@ -7,6 +7,16 @@ export const navItems: NavItemI[] = [
 ]
 
 
+export const bookGenre: DropdownI[] = [
+    {value: "FICTION", label: "Fiction"},
+    {value: "NON_FICTION", label: "Non-fiction"},
+    {value: "SCIENCE", label: "Science"},
+    {value: "HISTORY", label: "History"},
+    {value: "BIOGRAPHY", label: "Biography"},
+    {value: "FANTASY", label: "Fantasy"}
+]
+
+
 export const dropdownItems:DropdownI[] = [
     {
         value: "next.js",

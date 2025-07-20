@@ -39,7 +39,6 @@ export interface BookI {
   genre: BookGenre
   isbn: string
   title: string
-  _id: string
 }
 
 export interface DropdownI {
