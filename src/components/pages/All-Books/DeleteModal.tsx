@@ -11,31 +11,30 @@ import { catchApiError } from "@/lib/catchApiError";
 import { useDeleteBookMutation } from "@/redux/API/bookApi";
 import type { ErrorResponseI } from "@/types";
 import { Trash } from "lucide-react"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const DeleteModal = ({id}:string) => {
+const DeleteModal = ({ id }: { id: string }) => {
+    const [open, setOpen] = useState(false)
 
     const [deleteBook, { isLoading: isDeleting, error: deleteError }] = useDeleteBookMutation()
-
     useEffect(() => {
         if (deleteError) {
             catchApiError(deleteError as ErrorResponseI);
         }
     }, [deleteError]);
-
-
     const handleDeleteBook = async () => {
         try {
             const res = await deleteBook(id).unwrap();
-            toast.success(res?.message);
+            toast.success(res?.message)
+            setOpen(false)
         } catch (error: unknown) {
             catchApiError(error as ErrorResponseI);
         }
     };
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger>
                 <Trash className="cursor-pointer" size={18} />
             </DialogTrigger>
@@ -43,14 +42,15 @@ const DeleteModal = ({id}:string) => {
                 <DialogHeader>
                     <DialogTitle>Are you absolutely sure?</DialogTitle>
                     <DialogDescription>
-                        This action cannot be undone. This will permanently delete your account
-                        and remove your data from our servers.
+                        This action cannot be undone. This will permanently delete related data from our server
                     </DialogDescription>
                 </DialogHeader>
-                <Button disabled={isDeleting} onClick={handleDeleteBook} >Delete</Button>
+                <div className="flex items-center justify-center gap-4 mt-4 w-full">
+                    <Button variant="outline" disabled={isDeleting} onClick={() => setOpen(false)} className="w-28" >Cancel</Button>
+                    <Button disabled={isDeleting} onClick={handleDeleteBook} className="w-28">{isDeleting ? "Deleting..." : "Delete"}</Button>
+                </div>
             </DialogContent>
         </Dialog>
     )
 }
-
 export default DeleteModal
