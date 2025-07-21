@@ -42,10 +42,12 @@ const BookListTable = () => {
                             <TableCell>{isbn}</TableCell>
                             <TableCell>{copies}</TableCell>
                             <TableCell>
-                                {available ? "Available" : "Not Available"}
+                                <span className={`badge ${available ? "badge-green" : "badge-red"}`}>
+                                    {available ? "Available" : "Not Available"}
+                                </span>
                             </TableCell>
-                            <TableCell className="flex items-center gap-3" >
-                                <Button className="">Borrow</Button>
+                            <TableCell className="flex items-center gap-3 py-2">
+                                <Button>Borrow</Button>
                                 <BookEditForm id={_id} />
                                 <DeleteModal id={_id} />
                             </TableCell>

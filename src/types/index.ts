@@ -32,6 +32,7 @@ export type BookGenre =
   | "FANTASY";
 
 export interface BookI {
+  _id: string
   author: string
   available: boolean
   copies: number
