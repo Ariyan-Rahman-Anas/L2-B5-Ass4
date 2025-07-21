@@ -44,7 +44,9 @@ const BookCreateForm = () => {
 
     return (
         <form onSubmit={handleSubmit(handleSubmitForm)} className="w-full max-w-xl mx-auto space-y-2">
-            <Input placeholder="Enter title" {...register("title")}
+            <Input
+                placeholder="Enter title"
+                {...register("title")}
                 className={`input-field ${errors.title ? 'border-red-500' : ''}`}
             />
             <div className="flex flex-col md:flex-row gap-2">

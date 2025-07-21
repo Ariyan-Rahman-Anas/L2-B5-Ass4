@@ -129,3 +129,14 @@
 .section-subheading{
   @apply text-lg text-muted-foreground mb-4 text-center
 }
+.badge {
+  @apply inline-flex items-center justify-center rounded-sm px-3 py-1.5 text-xs font-medium;
+}
+
+.badge-red {
+  @apply bg-red-50 ring-inset text-red-700 ring-1 ring-red-600/10;
+}
+
+.badge-green {
+  @apply bg-green-50 ring-inset text-green-700 ring-1 ring-green-600/20;
+}
