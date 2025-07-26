@@ -86,7 +86,7 @@ const BookEditForm = ({ id }: { id: string }) => {
             const res = await updateBook({ id, data: changedData }).unwrap();
             toast.success(res?.message);
             setOpen(false)
-            reset(); // optionally reset to latest book state again
+            reset();
         } catch (error: unknown) {
             catchApiError(error as ErrorResponseI);
         }

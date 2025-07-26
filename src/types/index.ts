@@ -49,3 +49,16 @@ export interface DropdownI {
 export interface ComboboxProps {
   items: DropdownI[];
 }
+
+export interface BorrowBookI {
+  quantity: number
+  dueDate: string
+}
+
+export interface BorrowedBooksI {
+  book: {
+    title: string
+    isbn: string
+  },
+  totalQuantity: number
+}

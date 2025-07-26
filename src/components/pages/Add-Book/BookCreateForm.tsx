@@ -16,7 +16,7 @@ import { toast } from "sonner"
 
 const BookCreateForm = () => {
     const navigate = useNavigate()
-    const { reset, register, setValue, handleSubmit, watch, formState: { errors } } = useForm({
+    const { reset, register, setValue, handleSubmit, watch} = useForm({
         resolver: zodResolver(BookCreateSchema),
         defaultValues: {
             available: true,
@@ -46,9 +46,8 @@ const BookCreateForm = () => {
         <form onSubmit={handleSubmit(handleSubmitForm)} className="w-full max-w-xl mx-auto space-y-2">
             <Input
                 placeholder="Enter title"
-                {...register("title")}
-                className={`input-field ${errors.title ? 'border-red-500' : ''}`}
-            />
+                {...register("title")}/>
+
             <div className="flex flex-col md:flex-row gap-2">
                 <Input placeholder="Enter author's name" {...register("author")} />
                 <Combobox
@@ -56,6 +55,7 @@ const BookCreateForm = () => {
                     value={watch("genre")}
                     onChange={(val:string) => setValue("genre", val)} />
             </div>
+
             <Input placeholder="Enter ISBN number" {...register("isbn")} />
             <Input type="number" placeholder="Enter copies" {...register("copies", { valueAsNumber: true })}
             />

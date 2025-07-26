@@ -2,7 +2,7 @@ import { baseApi } from "./baseApi";
 
 const bookApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-         createBook: builder.mutation({
+        createBook: builder.mutation({
             query: (data) => ({
                 url: "/books",
                 method: "POST",
@@ -10,9 +10,16 @@ const bookApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["Books"]
         }),
+        // allBooks: builder.query({
+        //     query: () => ({ url: "/books" }),
+        //     providesTags: ["Books"]
+        // }),
         allBooks: builder.query({
-            query: () => ({ url: "/books" }),
-            providesTags: ["Books"]
+            query: (params) => ({
+                url: "/books",
+                params, // { limit, skip, sortBy, sort, filter }
+            }),
+            providesTags: ["Books"],
         }),
         singleBook: builder.query({
             query: (id) => ({ url: `/books/${id}` }),
