@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import heroBg from "./../../../../public/hero-bg.jpg"
 
 const Hero = () => {
     return (
@@ -22,7 +23,7 @@ const Hero = () => {
                 {/* Illustration / Image */}
                 <div className="flex justify-center">
                     <img
-                        src="./../../../../public/hero-bg.jpg"
+                        src={heroBg}
                         alt="Library MS."
                         className="w-full h-full rounded-md"
                     />
