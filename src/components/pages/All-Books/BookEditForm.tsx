@@ -73,24 +73,23 @@ const BookEditForm = ({ id }: { id: string }) => {
             const dirtyFields = formState.dirtyFields;
 
             const changedData: Partial<BookEditInput> = {};
-            for (const key in dirtyFields) {
-                const typedKey = key as keyof BookEditInput;
-                if (dirtyFields[typedKey]) {
-                    const value = data[typedKey];
-                    if (value !== undefined) {
-                        changedData[typedKey] = value;
-                    }
-                }
-            }
 
+            // Method 1: Using Object.keys with proper typing
+            Object.keys(dirtyFields).forEach((key) => {
+                const typedKey = key as keyof BookEditInput;
+                if (dirtyFields[typedKey] && data[typedKey] !== undefined) {
+                    (changedData as any)[typedKey] = data[typedKey];
+                }
+            });
             const res = await updateBook({ id, data: changedData }).unwrap();
             toast.success(res?.message);
-            setOpen(false)
+            setOpen(false);
             reset();
         } catch (error: unknown) {
             catchApiError(error as ErrorResponseI);
         }
     };
+
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -169,5 +168,4 @@ const BookEditForm = ({ id }: { id: string }) => {
         </Dialog>
     );
 };
-
 export default BookEditForm;

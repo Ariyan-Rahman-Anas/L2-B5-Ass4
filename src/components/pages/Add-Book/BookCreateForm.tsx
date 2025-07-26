@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { bookGenre } from "@/constants"
 import { catchApiError } from "@/lib/catchApiError"
 import { useCreateBookMutation } from "@/redux/API/bookApi"
-import type { BookI, ErrorResponseI } from "@/types"
+import type { BookCreateI, ErrorResponseI } from "@/types"
 import { BookCreateSchema } from "@/zodSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
@@ -31,7 +31,7 @@ const BookCreateForm = () => {
     }, [createError]);
 
 
-    const handleSubmitForm = async (data: BookI) => {
+    const handleSubmitForm = async (data: BookCreateI) => {
         try {
             const res = await createBook(data).unwrap();
             toast.success(res?.message);

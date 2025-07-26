@@ -22,7 +22,7 @@ const Hero = () => {
                 {/* Illustration / Image */}
                 <div className="flex justify-center">
                     <img
-                        src="/public/hero-bg.jpg"
+                        src="./../../../../public/hero-bg.jpg"
                         alt="Library MS."
                         className="w-full h-full rounded-md"
                     />

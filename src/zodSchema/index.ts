@@ -3,7 +3,7 @@ import z from "zod";
 export const BookCreateSchema = z.object({
   title: z.string().min(3, "Please enter book title"),
   author: z.string().min(3, "Please enter book author's name"),
-  genre: z.enum(["FICTION", "NON_FICTION", "SCIENCE", "HISTORY", "BIOGRAPHY", "FANTASY"]),
+  genre: z.string().min(1, "Please select genre"),
   isbn: z.string().min(3, "Please enter ISBN number"),
   description: z.string().min(10, "Please enter book description"),
   copies: z.number().min(0, "Please enter number of available copies"),
@@ -13,7 +13,6 @@ export const BookCreateSchema = z.object({
 export const BookEditSchema = BookCreateSchema.partial();
 
 export const BorrowBookSchema = z.object({
-  // book: z.string().min(3, "Book Id is required"),
   quantity: z.number().min(1, "Please enter book quantity"),
   dueDate: z.string().min(1, "Please enter due date")
 })

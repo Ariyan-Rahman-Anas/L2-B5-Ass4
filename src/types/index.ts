@@ -37,7 +37,16 @@ export interface BookI {
   available: boolean
   copies: number
   description: string
-  genre: BookGenre
+  genre: string
+  isbn: string
+  title: string
+}
+export interface BookCreateI {
+  author: string
+  available: boolean
+  copies: number
+  description: string
+  genre: string
   isbn: string
   title: string
 }
