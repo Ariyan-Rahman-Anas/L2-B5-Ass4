@@ -11,3 +11,9 @@ export const BookCreateSchema = z.object({
 });
 
 export const BookEditSchema = BookCreateSchema.partial();
+
+export const BorrowBookSchema = z.object({
+  // book: z.string().min(3, "Book Id is required"),
+  quantity: z.number().min(1, "Please enter book quantity"),
+  dueDate: z.string().min(1, "Please enter due date")
+})

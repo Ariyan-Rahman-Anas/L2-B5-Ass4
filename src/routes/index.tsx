@@ -7,6 +7,7 @@ const HomePage = lazy(()=> import("@/pages/home/HomePage"))
 const AllBooks = lazy(()=> import("@/pages/allBooks/AllBooksPage"))
 const AddBook = lazy(()=> import("@/pages/addBook/AddBookPage"))
 const BorrowSummary = lazy(()=> import("@/pages/borrowSummary/BorrowSummaryPage"))
+const BookDetails = lazy(()=> import("@/pages/book-details/BookDetailsPage"))
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             {path:"/all-books", Component: AllBooks},
             {path:"/add-book", Component: AddBook},
             {path:"/borrow-summary", Component: BorrowSummary},
+            {path:"/book-details/:id", Component: BookDetails},
         ]
     }
 ])

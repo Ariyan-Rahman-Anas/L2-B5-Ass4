@@ -8,6 +8,6 @@ export const baseApi = createApi({
         baseUrl: SERVER_URL,
         credentials: "include"
     }),
-    tagTypes: ["Books"],
+    tagTypes: ["Books", "Borrows"],
     endpoints:()=>({})
 })
