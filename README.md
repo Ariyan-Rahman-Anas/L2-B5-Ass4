@@ -31,7 +31,7 @@ A modern, full-stack library management system built with React, TypeScript, Red
 ## 🛠️ Technology Stack
 
 ### Frontend
-- **React 18** with TypeScript
+- **React 19** with TypeScript
 - **Redux Toolkit** + RTK Query for state management
 - **Tailwind CSS** for styling
 - **React Router** for navigation
@@ -47,26 +47,11 @@ A modern, full-stack library management system built with React, TypeScript, Red
 ## 📋 Project Structure
 
 ### Frontend Pages
-- `/books` - Book listing with CRUD operations
-- `/create-book` - Add new book form
-- `/books/:id` - Detailed book view
-- `/edit-book/:id` - Edit book interface
-- `/borrow/:bookId` - Book borrowing form
+- `/` - Home page with a eye pleasing UI
+- `/all-books` - Book listing with CRUD operations
+- `/add-book` - Add new book form
+- `/book-details/:id` - Detailed book view
 - `/borrow-summary` - Borrowed books summary
-
-### Key Components
-- **Navbar**: Navigation with links to all major sections
-- **BookTable**: Responsive table showing all books with actions
-- **BookForm**: Reusable form for creating/editing books
-- **BorrowForm**: Simple borrowing interface
-- **Footer**: Clean footer with site information
-
-## 🔧 Installation & Setup
-
-### Prerequisites
-- Node.js (v16 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
 
 
 ### Project Setup
